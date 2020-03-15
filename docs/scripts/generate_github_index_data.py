@@ -23,7 +23,14 @@ def visit(d_or_f, dir_node, seq_dict):
     for f in os.scandir(d_or_f):
         # print('visit:', f)
 
-        child = {'name': os.path.basename(f), 'id': (seq_dict['seq']), 'is_dir': os.path.isdir(f)}
+        if os.path.isdir(f):
+            url = dir_node['url']+'/'+os.path.basename(f)
+        else:
+            url = dir_node['url']+'/'+os.path.splitext(os.path.basename(f))[0]+'.html'
+        child = {'name': os.path.basename(f),
+                 'id': (seq_dict['seq']),
+                 'is_dir': os.path.isdir(f),
+                 'url': url}
         seq_dict['seq'] = seq_dict['seq'] + 1
         
         if 'children' not in dir_node:
@@ -34,11 +41,13 @@ def visit(d_or_f, dir_node, seq_dict):
 
 
 root = '../md'
-seq_dict = {'seq':0}
-data = {'name':os.path.basename(root), 'id': seq_dict['seq']}
-seq_dict['seq'] = seq_dict['seq'] + 1
+seq = {'seq': 0}
+data = {'name': os.path.basename(root),
+        'id': seq['seq'],
+        'url': 'md'}
+seq['seq'] = seq['seq'] + 1
 
-visit(root, data, seq_dict)
+visit(root, data, seq)
 print(json.dumps(data))
 
 # python3 generate_github_index_data.py| python3 -m json.tool

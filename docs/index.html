@@ -2,57 +2,40 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Welcome Baoying JVM Trouble Shooting page</title>
+    <title>https://baoyingwang.github.io/JVM_TroubleShooting/</title>
     <script src="./scripts/mbraak-jqTree-1.4.12-0-f2091a1/jquery.min.js"></script>
     <script src="./scripts/mbraak-jqTree-1.4.12-0-f2091a1/tree.jquery.js"></script>
     <link rel="stylesheet" href="./scripts/mbraak-jqTree-1.4.12-0-f2091a1/jqtree.css">
     <script>
 
     var data = [
-    {
-        "name": "md",
-        "id": 0,
-        "children": [
-            {
-                "name": "f2",
-                "id": 1,
-                "is_dir": true,
-                "children": [
-                    {
-                        "name": "index.md",
-                        "id": 2,
-                        "is_dir": false
-                    }
-                ]
-            },
-            {
-                "name": "f1",
-                "id": 3,
-                "is_dir": true,
-                "children": [
-                    {
-                        "name": "index.md",
-                        "id": 4,
-                        "is_dir": false
-                    }
-                ]
-            }
-        ]
-    }
+{"name": "md", "id": 0, "url": "www.google.com", "children": [{"name": "md_1.md", "id": 1, "is_dir": false, "url": "md/md_1.html"}, {"name": "f2", "id": 2, "is_dir": true, "url": "md/f2", "children": [{"name": "index.md", "id": 3, "is_dir": false, "url": "md/f2/index.html"}]}, {"name": "f1", "id": 4, "is_dir": true, "url": "md/f1", "children": [{"name": "index.md", "id": 5, "is_dir": false, "url": "md/f1/index.html"}]}]}
+
+
 
     ];
-    $('#tree1').tree({
-        data: data,
-        autoOpen: true,
-        dragAndDrop: false
-    });
 
     $(function() {
         $('#tree1').tree({
-            data: data
+            data: data,
+            autoOpen: true,
+            dragAndDrop: false,
+            autoEscape: false
         });
-    });
 
+        //https://stackoverflow.com/questions/20714589/jqtree-associating-a-url-with-a-node
+        $('#tree1').bind(
+            'tree.click',
+            function(event) {
+                // The clicked node is 'event.node'
+                var node = event.node;
+                var theURL = node.url;
+                if (theURL) {
+                    location.href = theURL;
+                }
+            }
+        );
+    });
 
     </script>
 
