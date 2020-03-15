@@ -35,9 +35,50 @@
                 }
             }
         );
+
+        //https://github.com/mbraak/jqTree/issues/211
+        //https://stackoverflow.com/questions/14411235/while-typing-in-a-text-input-field-printing-the-content-typed-in-a-div
+        //https://api.jquery.com/keyup/
+        //https://stackoverflow.com/questions/8795283/jquery-get-input-value-after-keypress
+        $('#searchName').keyup(
+            function(e) {
+
+                //https://stackoverflow.com/questions/11365632/how-to-detect-when-the-user-presses-enter-in-an-input-field
+                if (!e) e = window.event;
+                var keyCode = e.keyCode || e.which;
+                if (keyCode != '13'){
+                  return false;
+                }
+
+                var $tree = $('#tree1');
+                var search_term = this.value;
+
+                var tree = $tree.tree('getTree');
+
+                tree.iterate(
+                    function(node) {
+                        if (node.name.indexOf(search_term) == -1) {
+                            // Not found, continue searching
+                            return true;
+                        }
+                        else {
+                            // Found. Select node. Stop searching.
+                            $tree.tree('selectNode', node, true);
+                            return false
+                        }
+                    }
+                );
+            }
+        );
     });
 
+
+
     </script>
+
+    <div id="search">
+        <input type="text" id="searchName" name="searchName" required minlength="4" maxlength="8" size="10">
+    </div>
 
     <div id="tree1"></div>
 
