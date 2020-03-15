@@ -31,7 +31,7 @@ def visit(d_or_f, dir_node, seq_dict):
         visit(f, child, seq_dict)
 
 
-root='../docs'
+root='../md'
 seq_dict = {'seq':0}
 data = {'name':os.path.basename(root), 'id': seq_dict['seq']}
 seq_dict['seq'] = seq_dict['seq'] + 1
