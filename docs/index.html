@@ -9,12 +9,54 @@
     <script>
 
     var data = [
-    {"name": "md", "id": 0, "children": [{"name": "index.html", "id": 1, "is_dir": false}, {"name": "f2", "id": 2, "is_dir": false}, {"name": "f1", "id": 3, "is_dir": false}]}
+    {
+        "name": "md",
+        "id": 0,
+        "children": [
+            {
+                "name": "f2",
+                "id": 1,
+                "is_dir": true,
+                "children": [
+                    {
+                        "name": "index.md",
+                        "id": 2,
+                        "is_dir": false
+                    }
+                ]
+            },
+            {
+                "name": "f1",
+                "id": 3,
+                "is_dir": true,
+                "children": [
+                    {
+                        "name": "index.md",
+                        "id": 4,
+                        "is_dir": false
+                    }
+                ]
+            }
+        ]
+    }
+
     ];
     $('#tree1').tree({
         data: data,
         autoOpen: true,
         dragAndDrop: false
     });
+
+    $(function() {
+        $('#tree1').tree({
+            data: data
+        });
+    });
+
+
     </script>
+
+    <div id="tree1"></div>
+
+
 </html>
