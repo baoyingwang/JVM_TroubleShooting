@@ -1,7 +1,8 @@
-[TOC]
 {:toc}
+jqTree 使用小技巧
+=====
 # Overview
-这里列出我在使用中的一些小技巧，共初学者参考
+这里列出我在使用中的一些小技巧，供初学者参考，一起学些。
 
 ## 如何给节点添加url
 https://stackoverflow.com/questions/20714589/jqtree-associating-a-url-with-a-node
