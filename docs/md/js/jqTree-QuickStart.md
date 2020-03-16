@@ -1,14 +1,14 @@
-{:toc}
-
-# Overview
+* TOC {:toc}
+# jqTree Quick Start
+## Overview
 jqTree非常简单方便。
 看一看其tutorial（https://mbraak.github.io/jqTree/），略微懂一些js和html，就可以快速的搭建一个环境出来。
 
-# 搭建quick start的几个要点
+## 搭建quick start的几个要点
 - 把相关的文件(jquery.min.js, tree.jquery.js, jqtree.css)copy到你的子目录下面，方便从html中定位
 - 先直接copy下面简单例子，不要改别的东西
 
-# 第一个页面
+## 第一个页面
 
 ```
 

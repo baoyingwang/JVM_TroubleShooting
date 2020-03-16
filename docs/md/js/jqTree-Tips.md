@@ -1,18 +1,17 @@
-{:toc}
-jqTree 使用小技巧
-=====
-# Overview
+#jqTree 使用小技巧
+
+## Overview
 这里列出我在使用中的一些小技巧，供初学者参考，一起学些。
 
-## 如何给节点添加url
+### 如何给节点添加url
 https://stackoverflow.com/questions/20714589/jqtree-associating-a-url-with-a-node
 同时参考我的jqTree-QuickStart.md
 
-## 有人说加link需要设置autoEscape：false
+### 有人说加link需要设置autoEscape：false
 https://github.com/mbraak/jqTree/issues/69
 TODO：抽空看一下不设置是不是有问题，反正我设置了
 
-## 增加过滤框
+### 增加过滤框
 这个需要懂一些js和html知识（不需要太多），知道你想什么时候去触发搜索，以及如何获取搜索的值，等。
 
 这个事情在这里有讨论
