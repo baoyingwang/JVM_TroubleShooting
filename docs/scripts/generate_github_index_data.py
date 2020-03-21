@@ -22,6 +22,8 @@ def visit(d_or_f, dir_node, seq_dict):
     # use scan instead of listdir, because listdir return 'string' but scandir return object
     for f in os.scandir(d_or_f):
         # print('visit:', f)
+        if os.path.basename(f).startswith('_') or  os.path.basename(f).startswith('.'):
+            continue
 
         if os.path.isdir(f):
             url = dir_node['url']+'/'+os.path.basename(f)

@@ -1,0 +1,14 @@
+[
+  {
+    "description":"redirect example",
+    "request":{
+      "uri":"/C"
+    },
+    "response":{
+      "json":{
+        "note":"this will be redirected"
+      }
+    },
+    "redirectTo":"http://localhost:12311/A"
+  }
+]
