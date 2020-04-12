@@ -8,25 +8,27 @@
     <link rel="stylesheet" href="./scripts/mbraak-jqTree-1.4.12-0-f2091a1/jqtree.css">
 
     <style>
-//https://stackoverflow.com/questions/1260122/expand-a-div-to-fill-the-remaining-width
-.container {
-    width:1200px;
-    height:1200px;
-    border:1px solid;
-}
-.jq_tree {
-    height:1200px;
-    width:400px;
-    background:yellow;
-    float:left;
-}
-.kb_content {
-    width:auto;
-    height:1200px;
-    background:grey;
-    overflow:hidden;
 
+.css-light-grey {
+    color: #000 !important;
+    background-color: #f1f1f1 !important;
 }
+
+
+.css-main {
+    transition: margin-left 0s;
+}
+
+.css-sidebar {
+    height: 100%;
+    width: 200px;
+    background-color: #fff;
+    position: fixed !important;
+    z-index: 1;
+    overflow: auto;
+}
+
+
 
 </style>
 
@@ -61,11 +63,7 @@
                 var theURL = node.url;
                 if (theURL) {
                     //location.href = theURL;
-
-                    //load div page - https://stackoverflow.com/questions/18145273/how-to-load-an-external-webpage-into-a-div-of-a-html-page
-                    $("#kb_content").html('<object data="'+httpUrlBase+theURL+'"/>');
-                    
-                    //$('#kb_content').load(httpUrlBase+theURL +  ' #kb_content');
+                    $('#kb_content').load(httpUrlBase+theURL);
                 }
             }
         );
@@ -112,17 +110,29 @@
 
 
 
-    <div class="container">
-<!--
-        <div id="search">
-            <input type="text" id="searchName" name="searchName" required minlength="4" maxlength="8" size="10">
-        </div>
--->
+    <div id="container">
 
-        <div id="jq_tree"     class="jq_tree"></div>
-        <div id="kb_content"   class="kb_content"></div>
+        <div id="search">
+            Search Tree:<input type="text" id="searchName" name="searchName" required minlength="4" maxlength="8" size="10">
+        </div>
+
+        <div class="css-sidebar css-light-grey"  >
+
+            <div class="css-light-grey" id="jq_tree" style="height: 800px; overflow: scroll;"/>
+
+        </div>
+        <br><br>
 
     </div>
 
+
+    <div class="css-main css-light-grey" id="kb_content" style="margin-left: 220px; padding-top: 0px;" >
+
+        <h1>欢迎</h1>
+
+
+    </div>
+
+    </div>
 
 </html>
