@@ -110,8 +110,7 @@
 
 
 
-    <div id="container">
-
+    <div id="left_container">
         <div id="search">
             Search Tree:<input type="text" id="searchName" name="searchName" required minlength="4" maxlength="8" size="10">
         </div>
@@ -122,17 +121,21 @@
 
         </div>
         <br><br>
-
     </div>
-
 
     <div class="css-main css-light-grey" id="kb_content" style="margin-left: 220px; padding-top: 0px;" >
 
         <h1>欢迎</h1>
 
-
+        TODO:
+        </br>
+        1. 树节点（dir or file）的名称可以定制化，默认为文件名称(En)。
+        <br>对于文件来说，从md中抽取第一个'^#' 的内容作为标题，如果没有，则继续使用env。
+        <br>对于目录来说，需要当前目录下面有一个与描述文件(_dir.properties), 其title内容为替换的文件夹名称，没有该文件或者该title，则继续使用英文名词。
+        <br>这个主要是改动生成脚本（python）
+        <br>
+        2. 增加内容搜索，查看github是否有内置的api。此前，暂时使用intellij在本地control+shift+f搜索
     </div>
 
-    </div>
 
 </html>
